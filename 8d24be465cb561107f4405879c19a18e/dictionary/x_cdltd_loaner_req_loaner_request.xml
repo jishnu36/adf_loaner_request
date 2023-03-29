@@ -1,3 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element db_object_id="4896b20a5cb561107f4405879c19a15c" extends="task" label="Loaner request" max_length="40" name="x_cdltd_loaner_req_loaner_request" type="collection"/>
+    <element db_object_id="4896b20a5cb561107f4405879c19a15c" extends="task" label="Loaner request" max_length="40" name="x_cdltd_loaner_req_loaner_request" type="collection">
+        <element attributes="edge_encryption_enabled=true" choice="3" default="ny" label="Depot" max_length="40" name="depot" type="string">
+            <choice>
+                <element inactive_on_update="false" label="New York" sequence="0" value="ny"/>
+                <element inactive_on_update="false" label="London" sequence="1" value="london"/>
+                <element inactive_on_update="false" label="Buenos Aires" sequence="2" value="ba"/>
+                <element inactive_on_update="false" label="Santa Clara" sequence="3" value="sc"/>
+                <element inactive_on_update="false" label="Sydney" sequence="4" value="sydney"/>
+                <element inactive_on_update="false" label="Other" sequence="5" value="other"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="end date" mandatory="true" max_length="40" name="end_date" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="cmdb_ci_computer" label="item type" max_length="40" name="item_type" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Laptop" sequence="0" value="cmdb_ci_computer"/>
+                <element inactive_on_update="false" label="Mobile Phone" sequence="1" value="cmdb_ci_mobile_device"/>
+                <element inactive_on_update="false" label="Projector" sequence="2" value="cmdb_ci_projector"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="located to be used" max_length="40" name="located_to_be_used" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="other" max_length="40" name="other" type="string"/>
+        <element label="Overdue Count" max_length="40" name="overdue_count" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" label="Overdue remainder" max_length="40" name="overdue_remainder" type="glide_date_time"/>
+        <element label="Pick up Remainder" max_length="40" name="pick_up_remainder" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Requested" max_length="40" name="requested" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Requested" sequence="0" value="13"/>
+                <element inactive_on_update="false" label="Reserved" sequence="1" value="14"/>
+                <element inactive_on_update="false" label="Deployment Prep" sequence="2" value="15"/>
+                <element inactive_on_update="false" label="Ready for Pickup" sequence="3" value="16"/>
+                <element inactive_on_update="false" label="Check Out" sequence="4" value="17"/>
+                <element inactive_on_update="false" label="Post Depolyment" sequence="5" value="18"/>
+                <element inactive_on_update="false" label="Closed Complete" sequence="6" value="3"/>
+            </choice>
+        </element>
+        <element attributes="encode_utf8=false" label="Request for" mandatory="true" max_length="32" name="request_for" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Return remainder" max_length="40" name="return_remainder" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true" label="start date" mandatory="true" max_length="40" name="start_date" type="glide_date_time"/>
+        <element attributes="encode_utf8=false" label="New Reference" max_length="32" name="u_reference_1" reference="cmdb_ci_appl_dot_net" type="reference"/>
+        <element attributes="encode_utf8=false" label="New Reference" max_length="32" name="u_reference_2" reference="cmdb_ci_appl_dot_net" type="reference"/>
+    </element>
 </database>
